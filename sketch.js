@@ -4,11 +4,19 @@ var speed,weight;
 
 var deformation;
 
+var highFlames,lessFlames,normal;
 
+function preload(){
+  
+  highFlames = loadImage("sprites/flames.png");
+  lessFlames = loadImage("sprites/lessFlames.png");
+  normal = loadImage("sprites/normal.png");
 
+}
 function setup() {
   createCanvas(1000,400);
   //createSprite(400, 200, 50, 50);
+  
   
   speed=random(55,90);
   weight=random(400,1500);
@@ -33,20 +41,24 @@ function draw() {
     car1.velocityX=0;
      deformation=0.5*weight*speed*speed/22500;
     if(deformation>180){
-      car1.shapeColor=color(255,0,0);
+      //car1.shapeColor=color(255,0,0);
+      car1.addImage("bad",highFlames);
     }
 
+
     if(deformation<180 && deformation>100){
-      car1.shapeColor=color(230,230,0);
+      //car1.shapeColor=color(230,230,0);
+      car1.addImage("average",lessFlames)
     }
     if(deformation<100){
-      car1.shapeColor=color(0,255,0);
+      //car1.shapeColor=color(0,255,0);
+      car1.addImage("normal car",normal);
     }
 
   }
   
   drawSprites();
- text(mouseX+","+mouseY,mouseX,mouseY);
+ //text(mouseX+","+mouseY,mouseX,mouseY);
   
   
 }
