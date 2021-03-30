@@ -21,7 +21,7 @@ function setup() {
   speed=random(55,90);
   weight=random(400,1500);
 
- car1=createSprite(50,200,50,50);
+ car1=createSprite(700,300,50,50);
 
   
 
